@@ -55,15 +55,36 @@ a{
     background: url('giphy.gif') no-repeat 50% 50%; /*расположение (url) изображения gif и др. параметры*/
   }
   
-  .loaded-hiding .preloader {
+ .preloader {
     transition: 2.3s opacity;
     opacity: 0;
-  }
-  
-  .loaded .preloader {
-    display: none;
   }
   .not-correct
   {
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.973);
+  }
+  .curimg
+  {
+    padding-top:25px;border-radius:100px;
+  }
+  .curdiv{
+    padding-top:20px;border-radius: 0 15px 0px 0px;
+  }
+  @media screen and (max-width: 990px)
+  {
+    .rowcur{
+      display: block;
+    }
+    .curimg
+    {
+      width: 100%;
+      padding-left:15px;
+
+      padding-top:25px;
+      border-radius:40px;
+    }
+  .curdiv
+    {
+      border-radius: 0 0px 0px 0px;
+    }
   }

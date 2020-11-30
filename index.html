@@ -85,9 +85,7 @@
         </a>
         
     </div>
-    <div class="preloader">
-        <div class="preloader-image"></div>
-      </div>
+    
    <div id='mainReccomend' class="container-fluid text-decoration-none"></div>
 
     <div class="" ></div>
@@ -106,15 +104,40 @@
             </div>
         </div>
     </footer>
+    <script src="Post.js"></script>
     <script>
+        function addToCartGlobal(cnt)
+        {
+            var e = document.getElementById("count");
+            e.innerText= (parseInt(e.innerText,10)+1)+" шт.";
+            e = document.getElementById("totalPrice");
+            var price = document.getElementById("price"+cnt);
+            var normal = parseFloat(e.innerText,10)+parseFloat(price.innerText,10)+'';
+           e.innerText=normal.split('.')[0]+'.'+normal.split('.')[1].substring(0,2);
+           cart.totalprice = e.innerText;
+           if(cart.items.indexOf(cnt)==-1)
+           {
+            cart.items.push(cnt);
+            cart.countitems.push(1);
+            cart.allcount++;
+           }
+           else{
+               cart.countitems[cart.items.indexOf(cnt)]++;
+            cart.allcount++;
+           }
+           localStorage.clear;
+           localStorage.setItem('cart',JSON.stringify(cart));
+        }
+     
         var cart = 
            {totalprice:0,
             items:[],
             countitems:[],
             allcount:0
             }
-        function AddTochart()
+        function AddTochart(num)
         {
+            console.log(num);
           var e = document.getElementById("count");
           e.innerText= (parseInt(e.innerText,10)+1)+" шт.";
           e = document.getElementById("totalPrice");
@@ -122,16 +145,15 @@
            var normal = parseFloat(e.innerText,10)+parseFloat(price.innerText,10)+'';
            e.innerText=normal.split('.')[0]+'.'+normal.split('.')[1].substring(0,2);
            cart.totalprice = e.innerText;
-           if(cart.items.indexOf(document.getElementById('prodname').innerText)==-1)
+           if(cart.items.indexOf(num)==-1)
            {
-            cart.items.push(document.getElementById('prodname').innerText);
+            cart.items.push(num);
             cart.countitems.push(1);
             cart.allcount++;
            }
            else{
-               cart.countitems[cart.items.indexOf(document.getElementById('prodname').innerText)]++;
+               cart.countitems[cart.items.indexOf(num)]++;
             cart.allcount++;
-
            }
            localStorage.clear;
            localStorage.setItem('cart',JSON.stringify(cart));
@@ -150,11 +172,12 @@
             {
                 elem.classList.remove('not-correct');
                 console.log('GOOD');
+                return true;
             }
             else
             {
                 elem.classList.add('not-correct');
-
+                return false;
             }
         }
         function isValidMail(myMail) 
@@ -180,14 +203,27 @@
         {
             if(validMail() && validPhone())
             {
-                console.log("POST");
+                Order();
                 localStorage.clear();
+                var e = document.getElementById("count");
+                e.innerText= "0 шт.";
+                e = document.getElementById("totalPrice");  
+                e.innerText ='0.00';
+                window.location.hash = window.location.hash.split('#')[0]+'#home';
             }
         }
     </script>
     <script src="index.js" type="module"></script>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>jQuery(document).ready(function($) {
+        var Body = $('body');
+        Body.addClass('preloader-site');
+    });
+    $(window).load(function(){
+      $('.preloader-wrapper').fadeOut();
+        $('body').removeClass('preloader-site');
+    });</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

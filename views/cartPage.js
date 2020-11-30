@@ -1,6 +1,8 @@
 function myTag(products)
 {
-    let cnt= 1;
+    if(document.getElementById('count').innerText!='0 шт.')
+    {
+        let cnt= 1;
     let cart = JSON.parse(localStorage.getItem('cart'));
     let str1 = `<table class="table table-hover">
     <thead>
@@ -18,32 +20,31 @@ function myTag(products)
         
         
     
-    products.map(function(product)
-        { 
-        if(product.productName == cart.items[i])
+   
+        if(products[cart.items[i]])
         {
             str1+=
             `<tr>
             <th scope="row">${cnt}</th>
             
               <td style='width:20%;'>
-              <a  class="text-dark stretched-link" style="text-decoration:none;" href='#products/${product.url}'> 
+              <a  class="text-dark stretched-link" style="text-decoration:none;" href='#products/${products[cart.items[i]].url}'> 
               
-               <img src="${product.images}" class=' col' style=" height:20%;" alt=""></td>
+               <img src="${products[cart.items[i]].images}" class=' col' style=" height:20%;" alt=""></td>
                <td>
-               <a  class="text-dark stretched-link" style="text-decoration:none;" href='#products/${product.url}'> 
-                <div class='col'>${product.productName}</div></a>
+               <a  class="text-dark stretched-link" style="text-decoration:none;" href='#products/${products[cart.items[i]].url}'> 
+                <div class='col'>${products[cart.items[i]].productName}</div></a>
                 </td>
-               <td> <div class='col'>${product.price}</div></td>
+               <td> <div class='col'>${products[cart.items[i]].price}</div></td>
                <td> <div class='col'>${cart.countitems[i]}</div></td>
-               <td> <div class='col'>${product.price*cart.countitems[i]}$</div>
+               <td> <div class='col'>${products[cart.items[i]].price*cart.countitems[i]}$</div>
                </a>   
             
             </tr>
             `;
             cnt++;
         }
-        });
+        
     }
 
     /*
@@ -118,6 +119,23 @@ function myTag(products)
     </div>
     `;
 return str1;
+    }
+    else{
+        let str1 = `<table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Pizza</th>
+      <th>Price for one</th>
+      <th>Count</th>
+      <th>Summary Price</th>
+    </tr>
+  </thead>
+  <tbody><td>Empty cart</td>`;
+  return str1;
+    }
+    
 
 }
 const view = (products) =>myTag(products);

@@ -1,5 +1,4 @@
 let counter = 1;
-let cnt =1;
 let curcat='';
 let str1 ='';
 function OpenIt(product)
@@ -14,14 +13,16 @@ function myTag(products) {
                 str1+=`<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
                 break;
                 case 2:curcat = 'MEAT';
-                str1+=`<div class="container text-left mt-5"><div class='category'>${curcat}</div>`;
+                str1+=`<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
                 break;
                 case 3:curcat = 'BRAND';
-                str1+=`<div class="container text-left mt-5"><div class='category'>${curcat}</div>`;
+                str1+=`<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
                 break;
                 default: curcat ='';
                 break;
             }
+let cnt =0;
+
     products.map(function(product){ 
         if(product.categoryId==index)
         {
@@ -40,10 +41,10 @@ function myTag(products) {
                     <div class="card-body" style="width: 20rem;">
                         <h5 class="card-title">${product.productName}</h5>
                         <p class="card-text">
-                            Price: ${product.price}<br>
+                            Price:<span id="price${cnt}"> ${product.price}</span><br>
                             Weight: ${product.weight}
                         </p>
-                        <a id="pizza${cnt++}" onclick="openIt(product)" class="stretched-link btn btn-danger text-white " style="height:100%;weight:100%;">Добавить в корзину</a>
+                        <a id="pizza${cnt++}" onclick="addToCartGlobal(${cnt-1})" class="stretched-link btn btn-danger text-white " style="height:100%;weight:100%;">Добавить в корзину</a>
                     </div>
                 </a>
                 </div>
