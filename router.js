@@ -13,6 +13,10 @@ console.log(window.location.hash.split('#')[1]);
                 viewName = 'productsPage';
                 endpointName = 'products';
                 break;
+            case 'sale':
+                viewName = 'salesPage';
+                endpointName ='sales';
+                break;
             case 'home':
                 viewName = 'mainPage';
                 endpointName = 'products';
@@ -25,6 +29,7 @@ console.log(window.location.hash.split('#')[1]);
                 viewName = 'meatPage';
                 endpointName = 'products';
                 break;
+           
             case 'products/brandpizza':
                 viewName = 'brandPage';
                 endpointName = 'products';

@@ -1,8 +1,68 @@
+.slider {
+  width: 100%;
+margin-top: 50px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height: 400px;
+  margin-right: 50px;
+  border-radius: 10px;
+  background: #eee;
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.slider img {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .overlay{
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
+}
+.foot a
+{
+color: white;
+}
+.foot a:hover
+{
+opacity: 0.7;
+}
+.foot 
+{
+  padding-left: 15%;
 }
 .preloader{
   width: 50px;
@@ -75,6 +135,7 @@ a{
   }
   @media screen and (max-width: 990px)
   {
+    
     .rowcur{
       display: block;
     }
@@ -89,5 +150,40 @@ a{
   .curdiv
     {
       border-radius: 0 0px 0px 0px;
+    }
+  }
+  @media  (max-width: 450px)
+  {
+    .slider {
+      width: 100%;
+    margin-top: 25px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .slides > div {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 100%;
+      height: 180px;
+      margin-right: 50px;
+      border-radius: 10px;
+      background: #eee;
+      transform-origin: center center;
+      transform: scale(1);
+      transition: transform 0.5s;
+      position: relative;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 100px;
+    }
+    .slider img {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
