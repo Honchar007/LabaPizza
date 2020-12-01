@@ -4,8 +4,6 @@ import Client from './client.js';
 import Router from './router.js';
 
 
-
-
 const router = new Router();
 const templateProcessor = new TemplateProcessor();
 const client = new Client();
@@ -25,17 +23,15 @@ function funcRef(){
             return client.getData(endpointName);
         })
         .then((data) => {
-            templateProcessor.render(view(data));
+          templateProcessor.loader();
+          setTimeout(function(){
+          templateProcessor.render(view(data))},2000);
         });
         
 }
 function funcLoader()
 {
-        document.body.classList.add('loaded-hiding');
-        window.setTimeout(function () {
-          document.body.classList.add('loaded');
-          document.body.classList.remove('loaded-hiding');
-        }, 2000);
+        
 }
 function funcUpdateCart()
 {

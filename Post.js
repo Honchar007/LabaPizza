@@ -1,6 +1,7 @@
 async function Order() 
 {
-     
+    
+
       let cart = localStorage.getItem('cart');
       var userid = document.getElementById("formInput1").value;
       var new_order = '0000'+Math.random()*100;
@@ -13,12 +14,15 @@ async function Order()
      const data = { username: userid, order : new_order,whatpizza:pizzas,howmuch:counts };
      
      try {
-       await fetch(url, {
+        const orderId =  (await fetch(url, {
          method: 'POST', // или 'PUT'
          body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
          
        }).then((response) => response.json())
-       .catch(e => console.log(e));
+       .catch(e => console.log(e))).id;
+       console.log(orderId);
+       window.location.hash = window.location.hash.split('#')[0]+"#"+orderId;
+           
      } catch (error) {
        console.error('Ошибка:', error);
      }
