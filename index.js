@@ -9,7 +9,6 @@ window.onload = funcRef;
 window.onhashchange = funcRef;
 
 function funcRef() {
-    funcLoader();
     funcUpdateCart();
     const { viewName, endpointName } = router.getCurrentState();
 
@@ -25,10 +24,6 @@ function funcRef() {
                 templateProcessor.render(view(data))
             }, 2000);
         });
-}
-
-function funcLoader() {
-
 }
 
 function funcUpdateCart() {

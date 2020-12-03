@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Document</title>
 </head>
@@ -15,8 +14,7 @@
     <nav class="navbar navbar-expand-sm  navbar-dark bg-dark">
         <div class="container row">
             <a class="col-auto navbar-brand" href="#">
-                <img src="pizzahut-logo.png" width="50" height="50" alt="pizza hut">
-                Pizza Hut
+                <img src="pizzahut-logo.png" width="50" height="50" alt="pizza hut"> Pizza Hut
             </a>
             <div class="col-auto navbar-nav " id="collapsibleNavId">
                 <ul class="nav justify-content-center">
@@ -30,8 +28,7 @@
                     <li>
                         <div class="btn-group">
                             <a type="button" href="#products" class="btn btn-secondary">Products</a>
-                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="sr-only"></span>
                             </button>
                             <div class="dropdown-menu">
@@ -55,21 +52,23 @@
 
         </div>
     </nav>
-    <div class="slider">
-        <div class="slides">
-            <div id="slide-1">
-                <img src="1.jpg" alt="">
-            </div>
-            <div id="slide-2">
-                <img src="2.png" alt="">
+    <a href="#sale">
+        <div href="" class="slider">
+            <div class="slides">
+                <div id="slide-1">
+                    <img src="1.jpg" alt="">
+                </div>
+                <div id="slide-2">
+                    <img src="2.png" alt="">
 
-            </div>
-            <div id="slide-3">
-                <img src="3.jpg" alt="">
+                </div>
+                <div id="slide-3">
+                    <img src="3.jpg" alt="">
 
+                </div>
             </div>
         </div>
-    </div>
+    </a>
     <div id='mainReccomend' class="container-fluid text-decoration-none">
 
     </div>
@@ -111,8 +110,7 @@
                 cart.items.push(cnt);
                 cart.countitems.push(1);
                 cart.allcount++;
-            }
-            else {
+            } else {
                 cart.countitems[cart.items.indexOf(cnt)]++;
                 cart.allcount++;
             }
@@ -120,15 +118,15 @@
             localStorage.setItem('cart', JSON.stringify(cart));
         }
 
-        var cart =
-        {
+        var cart = {
             totalprice: 0,
             items: [],
             countitems: [],
             allcount: 0
         }
+
         function AddTochart(num) {
-            console.log(num);
+
             var e = document.getElementById("count");
             e.innerText = (parseInt(e.innerText, 10) + 1) + " шт.";
             e = document.getElementById("totalPrice");
@@ -137,17 +135,20 @@
             e.innerText = normal.split('.')[0] + '.' + normal.split('.')[1].substring(0, 2);
             cart.totalprice = e.innerText;
             if (cart.items.indexOf(num) == -1) {
+
                 cart.items.push(num);
                 cart.countitems.push(1);
                 cart.allcount++;
-            }
-            else {
+            } else {
+
+
                 cart.countitems[cart.items.indexOf(num)]++;
                 cart.allcount++;
             }
             localStorage.clear;
             localStorage.setItem('cart', JSON.stringify(cart));
         }
+
         function isValidPhone(myPhone) {
             return /^\+\d{12}$/.test(myPhone);
         }
@@ -158,32 +159,31 @@
 
             if (isValidPhone(val)) {
                 elem.classList.remove('not-correct');
-                console.log('GOOD');
                 return true;
-            }
-            else {
+            } else {
                 elem.classList.add('not-correct');
                 return false;
             }
         }
+
         function isValidMail(myMail) {
             return /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i.test(myMail);
         }
+
         function validMail() {
             var val = document.getElementById('formInput4').value;
             var elem = document.getElementById("formInput4");
             if (isValidMail(val)) {
                 elem.classList.remove('not-correct');
                 return true;
-            }
-            else {
+            } else {
                 elem.classList.add('not-correct');
                 return false;
             }
         }
+
         function validPost() {
             if (validMail() && validPhone()) {
-                Order();
                 localStorage.clear();
                 var e = document.getElementById("count");
                 e.innerText = "0 шт.";
@@ -194,21 +194,14 @@
     </script>
 
     <script src="index.js" type="module"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.preloader, .overlay').fadeOut();
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 

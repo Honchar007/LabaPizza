@@ -4,7 +4,6 @@ function myTag(products) {
     let count = 0;
     let tmpproduct;
     let arr = window.location.hash.split('/');
-    //console.log(window.location.hash.split('/'));
     let curitem = arr[arr.length - 1];
     str1 = '';
     products.map(function(product) {
@@ -30,7 +29,6 @@ function myTag(products) {
         }
     });
     let cnt = 1;
-    console.log(tmpproduct);
     str1 += `<div class="d-flex flex-row bg-dark text-white" style="overflow-x: scroll; height:30%">`;
 
     products.forEach(prods => {
@@ -50,7 +48,6 @@ function myTag(products) {
     str1 += `</div></div>
     </div>
   `;
-    //console.log(str1);
     return str1;
 }
 const view = (products) => myTag(products);

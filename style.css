@@ -149,6 +149,14 @@ a {
     border-radius: 0 15px 0px 0px;
 }
 
+.top-rated img {
+    border-radius: 15%;
+}
+
+.top-rated:hover {
+    opacity: 0.6;
+}
+
 @media screen and (max-width: 990px) {
     .rowcur {
         display: block;

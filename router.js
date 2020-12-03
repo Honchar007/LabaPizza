@@ -1,9 +1,6 @@
 class Router {
     getCurrentState() {
         let str = '' + window.location.hash.split('#')[1];
-        console.log(window.location.hash.split('#')[1]);
-        console.log(str.indexOf('products/'));
-        console.log(window.location.hash.split('#')[1]);
         let viewName = '';
         let endpointName = '';
         switch (window.location.hash.split('#')[1]) {
@@ -38,12 +35,10 @@ class Router {
                 break;
             default:
                 if (str.indexOf('products/') != -1) {
-                    console.log("ON");
+
                     viewName = 'currentPage';
                     endpointName = 'products';
                 } else {
-                    console.log("OFF");
-                    console.log(str);
 
                     viewName = 'mainPage';
                     endpointName = 'products';

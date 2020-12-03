@@ -30,10 +30,8 @@ function myTag(products) {
         products.map(function(product) {
             if (product.categoryId == index) {
                 if (counter == 1) {
-
                     str1 += "<div class='row mt-3'>";
                 }
-                console.log(counter);
                 counter++;
                 str1 += `
             <div class="col text-center" style="">

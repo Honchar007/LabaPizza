@@ -9,7 +9,7 @@ function create(sales) {
 
         str1 += `<div class='container-fluid mb-5'> 
                 <h3><p class="mb-0">${headlines[i]}</p></h3>
-                <img class="img-fluid" src='${images[i]}' alt=''>
+                <img class="img-fluid" src='${images[i]}' alt=''><br>
                 ${maintext[i]}
                 </div>`;
     }
@@ -17,7 +17,7 @@ function create(sales) {
 }
 const view = (sales) =>
     `<div class="container-fluid">
-    <div class="text-center font-weight-bold bg-danger">Sales and Deals</div></br>
+    <div class="text-center font-weight-bold bg-danger mt-4">Sales and Deals</div></br>
       ${create(sales)}
     </div>
    `;
