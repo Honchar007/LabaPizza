@@ -1,11 +1,9 @@
-
-
 class Router {
     getCurrentState() {
-        let str = ''+window.location.hash.split('#')[1];
-console.log(window.location.hash.split('#')[1]);
-console.log(str.indexOf('products/'));
-console.log(window.location.hash.split('#')[1]);
+        let str = '' + window.location.hash.split('#')[1];
+        console.log(window.location.hash.split('#')[1]);
+        console.log(str.indexOf('products/'));
+        console.log(window.location.hash.split('#')[1]);
         let viewName = '';
         let endpointName = '';
         switch (window.location.hash.split('#')[1]) {
@@ -15,7 +13,7 @@ console.log(window.location.hash.split('#')[1]);
                 break;
             case 'sale':
                 viewName = 'salesPage';
-                endpointName ='sales';
+                endpointName = 'sales';
                 break;
             case 'home':
                 viewName = 'mainPage';
@@ -29,28 +27,26 @@ console.log(window.location.hash.split('#')[1]);
                 viewName = 'meatPage';
                 endpointName = 'products';
                 break;
-           
+
             case 'products/brandpizza':
                 viewName = 'brandPage';
                 endpointName = 'products';
                 break;
             case 'cart':
                 viewName = 'cartPage';
-                endpointName='products';
+                endpointName = 'products';
                 break;
             default:
-                if(str.indexOf('products/')!=-1)
-                {
+                if (str.indexOf('products/') != -1) {
                     console.log("ON");
                     viewName = 'currentPage';
-                    endpointName='products';
-                }
-                else{
+                    endpointName = 'products';
+                } else {
                     console.log("OFF");
                     console.log(str);
-                    
+
                     viewName = 'mainPage';
-                endpointName = 'products';
+                    endpointName = 'products';
                 }
                 break;
         }

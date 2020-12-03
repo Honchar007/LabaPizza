@@ -1,10 +1,8 @@
-function myTag(products)
-{
-    if(document.getElementById('count').innerText!='0 шт.')
-    {
-        let cnt= 1;
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    let str1 = `<table class="table table-hover">
+function myTag(products) {
+    if (document.getElementById('count').innerText != '0 шт.') {
+        let cnt = 1;
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        let str1 = `<table class="table table-hover">
     <thead>
     <tr>
       <th>#</th>
@@ -16,15 +14,10 @@ function myTag(products)
     </tr>
   </thead>
   <tbody>`;
-    for (let i = 0; i < cart.countitems.length; i++) {
-        
-        
-    
-   
-        if(products[cart.items[i]])
-        {
-            str1+=
-            `<tr>
+        for (let i = 0; i < cart.countitems.length; i++) {
+            if (products[cart.items[i]]) {
+                str1 +=
+                    `<tr>
             <th scope="row">${cnt}</th>
             
               <td style='width:20%;'>
@@ -42,26 +35,11 @@ function myTag(products)
             
             </tr>
             `;
-            cnt++;
-        }
-        
-    }
+                cnt++;
+            }
 
-    /*
-  
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-    </tr>
-  
- */
-    str1+=`
+        }
+        str1 += `
     <td style='width:20%;'>
     
      </td>
@@ -118,9 +96,8 @@ function myTag(products)
     </form>
     </div>
     `;
-return str1;
-    }
-    else{
+        return str1;
+    } else {
         let str1 = `<table class="table table-hover">
     <thead>
     <tr>
@@ -133,29 +110,8 @@ return str1;
     </tr>
   </thead>
   <tbody><td>Empty cart</td>`;
-  return str1;
+        return str1;
     }
-    
-
 }
-const view = (products) =>myTag(products);
+const view = (products) => myTag(products);
 export default view;
-/*"url": "european",
-      "productName": "European",
-      "productDescription": "About Pizza ",
-      "price": 225.35,
-      "images": "./Pizza/Meat/European.png",
-      "weight": 220,
-      "relatedProductIds": [
-        2,
-        3,
-        4
-      ],
-      "spicy": false,
-      "categoryId": 2,
-      "rec": true 
-      var cart = 
-           {totalprice:0,
-            items:[],
-            countitems:[]
-            }*/

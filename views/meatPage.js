@@ -1,16 +1,13 @@
 let counter = 1;
 let str1 = '';
 let cnt = 1;
-function myTag(products)
-{
-    str1='';
-    products.map(function(product){ 
-        if(product.categoryId==2 )
-        {
-            if(counter==1)
-            {
-                
-            str1+="<div class='row mt-3'>";
+
+function myTag(products) {
+    str1 = '';
+    products.map(function(product) {
+        if (product.categoryId == 2) {
+            if (counter == 1) {
+                str1 += "<div class='row mt-3'>";
             }
             counter++;
             str1 += `
@@ -29,10 +26,9 @@ function myTag(products)
                     </a>
                 </div>
             </div>`;
-            if(counter==4)
-            {
-                str1+= "</div>";
-                counter=1;
+            if (counter == 4) {
+                str1 += "</div>";
+                counter = 1;
             }
         }
     });
@@ -40,10 +36,9 @@ function myTag(products)
     return str1;
 }
 const view = (products) =>
-`<div class="container-fluid" id="products">
-<div class="text-center font-weight-bold bg-danger">MEAT PIZZA</div></br>
-    ${myTag(products)}   
-</div>
-`;
-export default view;
+    `<div class="container-fluid" id="products">
+     <div class="text-center font-weight-bold bg-danger">MEAT PIZZA</div></br>
+     ${myTag(products)}   
+    </div>`;
 
+export default view;

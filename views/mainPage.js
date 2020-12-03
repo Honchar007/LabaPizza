@@ -29,4 +29,3 @@ Reccomended Pizza
 </div>
 `;
 export default view;
-

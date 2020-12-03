@@ -1,39 +1,41 @@
 let counter = 1;
-let curcat='';
-let str1 ='';
-function OpenIt(product)
-{
+let curcat = '';
+let str1 = '';
+
+function OpenIt(product) {
 
 }
-function myTag(products) {
-    for (let index = 1; index <=3; index++) {
-        switch(index)
-            {
-                case 1:curcat = 'CHEEZE';
-                str1+=`<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
-                break;
-                case 2:curcat = 'MEAT';
-                str1+=`<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
-                break;
-                case 3:curcat = 'BRAND';
-                str1+=`<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
-                break;
-                default: curcat ='';
-                break;
-            }
-let cnt =0;
 
-    products.map(function(product){ 
-        if(product.categoryId==index)
-        {
-            if(counter==1)
-            {
-                
-            str1+="<div class='row mt-3'>";
-            }
-            console.log(counter);
-            counter++;
-            str1 += `
+function myTag(products) {
+    for (let index = 1; index <= 3; index++) {
+        switch (index) {
+            case 1:
+                curcat = 'CHEEZE';
+                str1 += `<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
+                break;
+            case 2:
+                curcat = 'MEAT';
+                str1 += `<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
+                break;
+            case 3:
+                curcat = 'BRAND';
+                str1 += `<div class="container-fluid text-left mt-5"><div class='category'>${curcat}</div>`;
+                break;
+            default:
+                curcat = '';
+                break;
+        }
+        let cnt = 0;
+
+        products.map(function(product) {
+            if (product.categoryId == index) {
+                if (counter == 1) {
+
+                    str1 += "<div class='row mt-3'>";
+                }
+                console.log(counter);
+                counter++;
+                str1 += `
             <div class="col text-center" style="">
                 <div class="card" style="width: 20rem;">
                 <a href="#products/${product.url}" class="bg-danger" style="text-decoration:none;color:black;">
@@ -49,22 +51,22 @@ let cnt =0;
                 </a>
                 </div>
             </div>`;
-            if(counter==4)
-            {
-                str1+= "</div>";
-                counter=1;
+                if (counter == 4) {
+                    str1 += "</div>";
+                    counter = 1;
+                }
             }
-        }
-        return '';});
-        str1+="</div>";
+            return '';
+        });
+        str1 += "</div>";
     }
     return str1;
-  }
+}
 const view = (products) =>
-`<div class="container-fluid" id="products">
-<div class="text-center font-weight-bold">ALL PIZZAS</div></br>
+    `<div class="container-fluid" id="products">
+    <div class="text-center font-weight-bold">ALL PIZZAS</div></br>
     ${myTag(products)}   
-</div>
+    </div>
 `;
-export default view;
 
+export default view;
