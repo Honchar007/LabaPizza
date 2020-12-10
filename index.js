@@ -9,6 +9,7 @@ window.onload = funcRef;
 window.onhashchange = funcRef;
 
 function funcRef() {
+
     funcUpdateCart();
     const { viewName, endpointName } = router.getCurrentState();
 
